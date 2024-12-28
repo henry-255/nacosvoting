@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Vote extends Model
 {
-    //
+    protected $fillable = ['user_id', 'candidate_id', 'position'];
+
+    // Define the relationship with User and Candidate
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,5 +19,4 @@ class Vote extends Model
     {
         return $this->belongsTo(Candidate::class);
     }
-
 }
